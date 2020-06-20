@@ -1,0 +1,39 @@
+package bt3controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Ex3controller")
+public class Ex3controller extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public Ex3controller() {
+        super();
+    }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		lamTron(response.getWriter());
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+public void lamTron(PrintWriter out) {
+	int tongBanGhi=57;
+	int soBanGhiCuaTrang=10;
+	float soTrang=(float)tongBanGhi/soBanGhiCuaTrang;
+	out.print("<p> Số trang chưa làm tròn:"+soTrang+"</p>");
+	out.print("<p> Số trang làm trong tăng: "+(int) Math.round(soTrang)+"</p>");
+	
+	out.print("<p> Số trang làm tròn giảm: "+(int) Math.floor(soTrang)+"</p>");
+}
+}
