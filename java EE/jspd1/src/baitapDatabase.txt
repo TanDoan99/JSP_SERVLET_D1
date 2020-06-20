@@ -1,0 +1,7 @@
+//t?o database
+CREATE DATABASE <myfriends>
+//t?o table
+CREATE TABLE friend_list (
+    fl_id int,
+    flname varchar(255)
+);
